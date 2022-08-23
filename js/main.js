@@ -1,7 +1,9 @@
 // HANDLE THE LOAD EVENT OF THE WINDOW\
 window.onload = (event) => {
     event.preventDefault();
-    console.log("The page is fully loaded.");
+    let empOutput = window.document.getElementById('loginDetails');
+    empOutput.innerText = '';
+    console.log("The page is fully loaded.");        
 };
 
 // HANDLE THE CLICK EVENT FOR THE BTNADDEMPLOYEE BUTTON
@@ -11,5 +13,6 @@ btn.addEventListener('click', popWindow, false);
 // OPEN THE ADD-EMPLOYEE.HTML PAGE WITHIN A POPUP
 function popWindow() {
     // window.open('./add-employee.html', 'addEmployee', '');
-    window.open('./add-employee.html', 'addEmployee', '');
+    let popWindow = window.open('./add-employee.html', 'addEmployee','width=200, height=200');
+    console.log('Popup window has opened.');
 };

@@ -1,8 +1,7 @@
 // HANDLE THE LOAD EVENT OF THE WINDOW
-window.addEventListener('load', ()=>{
-    let newWindow = window.opener.document.getElementById('loginDetails');
-    newWindow.preventDefault;
-    console.log("The page is fully loaded.")
+window.addEventListener('load', (e) => {
+    e.preventDefault();
+    console.log("The popup page is fully loaded.")
 });
 
 // SET WIDTH AND HEIGHT VARIABLES TO 800 x 700
@@ -10,40 +9,59 @@ let formWidth = 800;
 let formHeight = 700;
 
 // RESIZE THE POPUP TO THE SET WIDTH AND HEIGHT
-newWindow.resizeTo(formWidth, formHeight);
-console.log('The page size has been changed to the set value.')
+window.resizeTo(formWidth, formHeight);
+console.log('The page size has been changed.');
 
 // MOVE THE POPUP TO THE MIDDLE OF THE SCREEN
-newWindow.moveTo(((window.screen.width - width) / 2), ((window.screen.height - height) / 2));
+window.moveTo(((window.screen.width - formWidth) / 2), ((window.screen.height - formHeight) / 2));
+console.log('The page is at the center of the page.')
 
 // CREATE A HELPER FUNCTION TO RETRIEVE THE HTML ELEMENTS FROM THE DOM
-function helper() {
-    let empForm = window.opener.document.getElementById('empForm');
-    let submitBtn = window.opener.document.getElementById('submit');
-    let cancelBtn = window.opener.document.getElementById('cancel');   
-};
+    // Get form, button elements
+    let empForm = window.document.getElementById('empForm');
+    let submitBtn = window.document.getElementById('submit');
+    let cancelBtn = window.document.getElementById('cancel'); 
+
+    // Get all elements related to employees' properties.
+    let empID = window.document.getElementById('id');
+    let empName = window.document.getElementById('name');
+    let empExt = window.document.getElementById('extension');
+    let empEmail = window.document.getElementById('email');
+    let empDept = window.document.getElementById('department');
+
+    function helper() {
+        
+    };
 
 // HANDLE THE CANCEL BUTTON. WHEN THE USER CLICKS THIS BUTTON, CLOSE THE WINDOW
-cancelBtn.addEventListener('click', ()=>{
-    newWindow.close();
+cancelBtn.addEventListener('click', () => {
+    window.close();
 }, false);
 
 // HANDLE THE SUBMISSION OF THE FORM AND THEN IMMEDIATELY PREVENT THE SUBMISSION
+submitBtn.addEventListener('click', (e) => e.preventDefault(), false);
+console.log('Prevent the submission of the form');
 
 // CREATE 5 VARIABLES FOR ID, NAME, EXT, EMAIL, AND DEPT
 // SET THOSE VARIABLES TO WHATEVER THE USER ENTERS INTO THE FORM ELEMENTS
-let empID = window.opener.document.getElementById('id').value;
-let empName = window.opener.document.getElementById('name').value;
-let empExt = window.opener.document.getElementById('extension').value;
-let empEmail = window.opener.document.getElementById('email').value;
-let empDept = window.opener.document.getElementById('department').value;
+
+let idValue = window.document.getElementById('id').value;
+let nameValue = window.document.getElementById('name').value;
+let extValue = window.document.getElementById('extension').value;
+let emailValue = window.document.getElementById('email').value;
+let departValue = window.document.getElementById('department').value;
 
 // GET THE LOGINDETAILS OUTPUT ELEMENT FROM THE PARENT PAGE
-
+if (window.opener){
+    console.log('parent window')
+    window.opener.document.getElementById('btnAddEmployee').innerHTML;
+}
+// let outputElement = window.opener.getElementById('loginDetails').innerHTML;
+// console.log(outputElement);
 
 // SET THE TEXT OF THE LOGINDETAILS ELEMENT TO THE ABOVE SET VARIABLES
-
+// empOutput.innerText = 'Show the result.'
 // CLOSE THE POPUP
-newWindow.close();
+// window.close();
 
 // THE DATA SHOULD SHOW ON THE INDEX.HTML PAGE
