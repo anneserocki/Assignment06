@@ -1,8 +1,14 @@
 // HANDLE THE LOAD EVENT OF THE WINDOW
+window.onload = (event) => {
+    console.log("The page is fully loaded.");
+};
 
 // SET WIDTH AND HEIGHT VARIABLES TO 800 x 700
+let formWidth = 800;
+let formHeight = 700;
 
 // RESIZE THE POPUP TO THE SET WIDTH AND HEIGHT
+
 
 // MOVE THE POPUP TO THE MIDDLE OF THE SCREEN
 
