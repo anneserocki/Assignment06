@@ -6,9 +6,10 @@ window.onload = (event) => {
 
 // HANDLE THE CLICK EVENT FOR THE BTNADDEMPLOYEE BUTTON
 let btn = window.document.getElementById("btnAddEmployee");
-btn.addEventListener('click', addPage, false);
+btn.addEventListener('click', popWindow, false);
 
 // OPEN THE ADD-EMPLOYEE.HTML PAGE WITHIN A POPUP
-function addPage() {
-    window.open('./add-employee.html', 'popup', 'width=500, hight=900');
+function popWindow() {
+    // window.open('./add-employee.html', 'addEmployee', '');
+    window.open('./add-employee.html', 'addEmployee', '');
 };
