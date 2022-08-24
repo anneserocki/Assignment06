@@ -39,7 +39,7 @@ cancelBtn.addEventListener('click', () => {
 }, false);
 
 // HANDLE THE SUBMISSION OF THE FORM AND THEN IMMEDIATELY PREVENT THE SUBMISSION
-submitBtn.addEventListener('click', (e) => e.preventDefault(), false);
+empForm.addEventListener('click', (e) => e.preventDefault(), false);
 console.log('Prevent the submission of the form');
 
 // CREATE 5 VARIABLES FOR ID, NAME, EXT, EMAIL, AND DEPT
@@ -52,16 +52,18 @@ let emailValue = window.document.getElementById('email').value;
 let departValue = window.document.getElementById('department').value;
 
 // GET THE LOGINDETAILS OUTPUT ELEMENT FROM THE PARENT PAGE
-if (window.opener){
-    console.log('parent window')
-    window.opener.document.getElementById('btnAddEmployee').innerHTML;
-}
-// let outputElement = window.opener.getElementById('loginDetails').innerHTML;
-// console.log(outputElement);
+
+let outputElement = window.opener.document.getElementById('loginDetails');
+console.log(outputElement);
 
 // SET THE TEXT OF THE LOGINDETAILS ELEMENT TO THE ABOVE SET VARIABLES
-// empOutput.innerText = 'Show the result.'
+outputElement.innerText = 'ID: + ${idValue} Name: + ${nameValue} Extension: + ${extValue} Email: + ${emailValue} Department: + ${department}';
+
 // CLOSE THE POPUP
-// window.close();
+if (window.confirm('Have you finished all?')) {
+    window.close();
+} else {
+    window.open();
+};
 
 // THE DATA SHOULD SHOW ON THE INDEX.HTML PAGE

@@ -1,4 +1,5 @@
 // HANDLE THE LOAD EVENT OF THE WINDOW\
+
 window.onload = (event) => {
     event.preventDefault();
     let empOutput = window.document.getElementById('loginDetails');
