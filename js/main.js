@@ -1,5 +1,7 @@
-// HANDLE THE LOAD EVENT OF THE WINDOW\
+// There is an issue: add-employee.js:56 Uncaught DOMException: Blocked a frame with origin "null" from accessing a cross-origin frame.
+// Important that I need to fix this issue.
 
+// HANDLE THE LOAD EVENT OF THE WINDOW\
 window.onload = (event) => {
     event.preventDefault();
     let empOutput = window.document.getElementById('loginDetails');
